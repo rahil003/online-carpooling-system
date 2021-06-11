@@ -39,7 +39,11 @@ def whycps(request):
 def offer_share(request):
     if request.user.is_anonymous:
         return redirect("/")
-    return render(request,'offer_share.html')
+    else:
+            rides = Ride.objects.all()  
+            return render(request,"offer_share.html",{'rides':rides})
+
+        
 
 def register_user(request):
     #return render(request,'register_user.html')
@@ -57,11 +61,34 @@ def register_user(request):
         form1 = userform()
     return render(request,'register_user.html',{'frm':form1})
 
+def addnew(request):
+    if request.method=="POST":
+        form = RideForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/offer_share')
+            except:
+                pass
+    else:
+        form = RideForm()
+    return render(request,'addnew.html',{'form':form})
 
 def logoutuser(request):
     logout(request)
     return redirect("/")
 
+def edit(request, id):  
+    ride = Ride.objects.get(id=id)  
+    return render(request,'edit.html', {'ride':ride})  
+
+def update(request, id):  
+    ride = Ride.objects.get(id=id)  
+    form = RideForm(request.POST, instance = ride)  
+    if form.is_valid():  
+        form.save()  
+        return redirect("/offer_share")  
+    return render(request, 'edit.html', {'ride': ride}) 
 
 def contact(request):
     if request.method == "POST":
