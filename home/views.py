@@ -38,7 +38,7 @@ def whycps(request):
 
 def offer_share(request):
     if request.user.is_anonymous:
-        return redirect("index")
+        return redirect("/")
     return render(request,'offer_share.html')
 
 def register_user(request):
