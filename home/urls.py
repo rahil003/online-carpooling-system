@@ -11,9 +11,11 @@ urlpatterns = [
     path("offer_share", views.offer_share,name='offer_share'),
     path('logout', views.logoutuser,name="logout"),
     path('addnew', views.addnew,name="addnew"),
+    path('search_ride', views.search_ride,name="search_ride"),
+
     path('edit/<int:id>', views.edit),  
     path('update/<int:id>', views.update),  
-   # path('delete/<int:id>', views.destroy),
+    path('delete/<int:id>', views.destroy),
 
 
 

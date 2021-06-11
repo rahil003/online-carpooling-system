@@ -43,6 +43,14 @@ def offer_share(request):
             rides = Ride.objects.all()  
             return render(request,"offer_share.html",{'rides':rides})
 
+
+def search_ride(request):
+    if request.user.is_anonymous:
+        return redirect("/")
+    else:
+            rides = Ride.objects.all()  
+            return render(request,"search_ride.html",{'rides':rides})
+
         
 
 def register_user(request):
@@ -80,7 +88,12 @@ def logoutuser(request):
 
 def edit(request, id):  
     ride = Ride.objects.get(id=id)  
-    return render(request,'edit.html', {'ride':ride})  
+    return render(request,'edit.html', {'ride':ride}) 
+
+def destroy(request, id):  
+    ride = Ride.objects.get(id=id)  
+    ride.delete()  
+    return redirect("/offer_share")  
 
 def update(request, id):  
     ride = Ride.objects.get(id=id)  
