@@ -1,79 +1,93 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<title>{% block title %}{% endblock %}</title>
-{% load static %}  
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
- 
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-</head> 
-<body>
-<div class="container">
- <div class="row">
- </div>
-</div>
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  {% load static %}
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-</script>
-</body> 
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+    </div>
+  </div>
+  <script>
+
+  </script>
+</body>
 </html>
 {% block content %}
 <div class="col-md-12">
- <form method="POST" class="post-form" action="/update/{{ride.id}}">  
-   {% csrf_token %}  
-  <div class="container">  
- <br>  
-  <div class="form-group row">  
-  <label class="col-sm-5 col-form-label"></label>  
-  <div class="col-sm-7">  
-  <h3>Update Details</h3>  
-  </div>  
-   </div>  
-  <div class="form-group row">  
-  <label class="col-sm-2 col-form-label">Ride Id:</label>  
-  <div class="col-sm-4">  
-   <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ ride.id }}"/>  
-  </div>  
-   </div>  
-   <div class="form-group row">  
-  <label class="col-sm-2 col-form-label">Name:</label>  
-  <div class="col-sm-4">  
-   <input type="text" class="form-control" name="name" id="id_name" required maxlength="100" value="{{ ride.name }}" />  
-  </div>  
-   </div>  
-  <div class="form-group row">  
-  <label class="col-sm-2 col-form-label">Source</label>  
-  <div class="col-sm-4">  
-   <input type="text" class="form-control" name="source" id="id_source" required maxlength="254" value="{{ ride.email }}" />  
-  </div>  
-   </div>  
-  <div class="form-group row">  
-  <label class="col-sm-2 col-form-label">Destination:</label>  
-  <div class="col-sm-4">  
-   <input type="text" class="form-control" name="destination" id="id_destination" required maxlength="15" value="{{ ride.contact }}" />  
-  </div>
-  <div class="form-group row">  
-  <label class="col-sm-2 col-form-label">Car:</label>  
-  <div class="col-sm-4">  
-   <input type="text" class="form-control" name="car" id="id_car" required maxlength="15" value="{{ ride.car }}" />  
-  </div>  
+  <form method="POST" class="post-form" action="/update/{{ride.id}}">
+    {% csrf_token %}
+    <div class="container">
+      <br>
 
-   <div class="form-group row">  
-  <label class="col-sm-2 col-form-label">Contact:</label>  
-  <div class="col-sm-4">  
-   <input type="text" class="form-control" name="contact" id="id_car" required maxlength="15" value="{{ ride.contact }}" />  
-  </div> 
-   </div>  
-  <div class="form-group row">  
-  <label class="col-sm-1 col-form-label"></label>  
-  <div class="col-sm-4">  
-  <button type="submit" class="btn btn-success btn-lg">Update</button>  
-  </div>  
-   </div>  
-  </div>  
- </form>  
-{% endblock content %} 
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label"></label>
+        <div class="col-sm-7">
+          <h3>Update Details</h3>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Ride Id:</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ ride.id }}" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Name:</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="name" id="id_name" required maxlength="100"
+            value="{{ ride.name }}" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Source</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="source" id="id_source" required maxlength="254"
+            value="{{ ride.email }}" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Destination:</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="destination" id="id_destination" required maxlength="15"
+            value="{{ ride.contact }}" />
+        </div>
+      </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Car:</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" name="car" id="id_car" required maxlength="15"
+              value="{{ ride.car }}" />
+          </div>
+        </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Contact:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="contact" id="id_car" required maxlength="15"
+                value="{{ ride.contact }}" />
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-success btn-lg">Update</button>
+            </div>
+          </div>
+        </div>
+  </form>
+  {% endblock content %}

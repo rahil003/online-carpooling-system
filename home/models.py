@@ -15,6 +15,7 @@ class Ride(models.Model):
     destination = models.CharField(max_length=122)
     car = models.CharField(max_length=122)
     contact = models.CharField(max_length=100)
+    #dttime = models.DateField()
     
     class Meta:
         db_table = "ride"

@@ -2,6 +2,7 @@ from django import forms
 from .models import *
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+import datetime
 
 class userform(ModelForm):
     username = forms.CharField(max_length=100,widget=forms.TextInput,)
@@ -24,6 +25,8 @@ class RideForm(forms.ModelForm):
             'destination': forms.TextInput(attrs={ 'class': 'form-control' }),
             'car': forms.TextInput(attrs={ 'class': 'form-control' }),
             'contact': forms.TextInput(attrs={ 'class': 'form-control' }),
+            #'dttime': forms.DateField(initial=datetime.date.today),
+
 
 
       }
